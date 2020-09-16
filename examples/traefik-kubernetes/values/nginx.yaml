@@ -1,0 +1,12 @@
+ingress:
+  enabled: true
+  hosts:
+    - name: hello.localhost.pomerium.io
+      path: /
+
+  annotations:
+    traefik.ingress.kubernetes.io/router.middlewares: pomerium-auth@kubernetescrd
+    traefik.ingress.kubernetes.io/router.tls: "true"
+  tls:
+service:
+  type: ClusterIP
